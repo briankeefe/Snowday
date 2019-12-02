@@ -1,13 +1,23 @@
 import React from "react";
-import { Box, Card } from "@material-ui/core";
+import { Box, Card, Typography, Grid } from "@material-ui/core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
 const thing = () => {
     return (
         <Box>
             <Card className="component-card">
-                some text
-                <FontAwesomeIcon className="bolt" icon={faBolt}/>
+                <Grid container className="cc-box" justify="center">
+                    <Typography>Weather Text</Typography>
+                </Grid>
+                <Grid container className="cc-box" justify="center">
+                    <FontAwesomeIcon className="icon" icon={faBolt}></FontAwesomeIcon>
+                </Grid>
+                <Grid container className="cc-box" justify="center">
+                    <Typography>Temperature: </Typography>
+                </Grid>
+                <Grid container className="cc-box" justify="center">
+                    <Typography>Chance of snowday: </Typography>
+                </Grid>
             </Card>
         </Box>
     )

@@ -4,10 +4,13 @@
 }
 
 .component-card{
-    height: 20vh;
+    height: 30vh;
     width: 15vw;
-    .bolt {
-        height: 50%;
-        width: 50%;
+    .icon {
+        height: 20%;
+        width: 20%;
+    }
+    .cc-box {
+        margin-bottom: 16px;
     }
 }
