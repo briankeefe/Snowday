@@ -1,9 +1,13 @@
 .home-page{
-    .MuiBox-root{
-        background-color: bisque;
-        min-height: 100vh;
-    }
-    .MuiTypography-root {
-        color: red;
+    background-color: black;
+    height: 100vh;
+}
+
+.component-card{
+    height: 20vh;
+    width: 15vw;
+    .bolt {
+        height: 50%;
+        width: 50%;
     }
 }
