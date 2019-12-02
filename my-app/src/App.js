@@ -21,13 +21,13 @@ function App() {
 
 	return (
 		<Box className="home-page" style={{ backgroundColor: blue[200] }}>
-			<Box className="next-box" pt={10}>
-				<Box my={2} mx={10}>
+			<Box className="next-box">
+				<Box mb={2} mx={10}>
 					<Grid container justify="center">
-						<Grid item lg={4} md={6} xs={12}>
+						<Grid item lg={4} sm={6} xs={12}>
 							<Paper>
-								<Box display="flex" justifyContent="center">
-									<TextField variant="filled" onChange={updateText}></TextField>
+								<Box m={2} p={1} display="flex" justifyContent="center">
+									<TextField label="Zipcode" defaultValue={zip} variant="filled" onChange={updateText}></TextField>
 									<Button onClick={updateZip}>Change</Button>
 								</Box>
 							</Paper>
@@ -35,20 +35,20 @@ function App() {
 
 					</Grid>
 				</Box>
-				<Grid container justify="center" spacing={2}>
-					<Grid item>
+				<Grid container spacing={2} justify="center">
+					<Grid item xs={12} sm={2}>
 						<Card temp={100} />
 					</Grid>
-					<Grid item>
+					<Grid item xs={12} sm={2}>
 						<Card />
 					</Grid>
-					<Grid item>
+					<Grid item xs={12} sm={2}>
 						<Card />
 					</Grid>
-					<Grid item>
+					<Grid item xs={12} sm={2}>
 						<Card />
 					</Grid>
-					<Grid item>
+					<Grid item xs={12} sm={2}>
 						<Card />
 					</Grid>
 				</Grid>
