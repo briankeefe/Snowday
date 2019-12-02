@@ -7,37 +7,26 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { purple, green, blue } from '@material-ui/core/colors';
 import { faFastForward } from '@fortawesome/free-solid-svg-icons';
-import { AppBar, Toolbar, Box, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Box, Typography, Button } from '@material-ui/core';
 const theme = createMuiTheme({
-    palette: {
-        primary: blue,
-        secondary: green,
-    }
+	palette: {
+		primary: blue,
+		secondary: green,
+	}
 });
 
-const toolbar = (
-    <AppBar style={{height: "10vh"}} position="static">
-        <Toolbar>
-            <Typography style={{margin: "auto"}} variant="h3" color="inherit">
-                Snowday Calculator 2.0
-            </Typography>
-        </Toolbar>
-    </AppBar>
-);
-
 const routing = (
-    <Box className="outermost">
-        <ThemeProvider theme={theme}>
-            {toolbar}
-            <Router>
-                <div>
-                    <Route path="/" component={App} />
-                    <Route path="/today" component={App} />
-                    <Route path="/tomorrow" component={App} />
-                </div>
-            </Router>
-        </ThemeProvider>
-    </Box>
+	<Box className="outermost">
+		<ThemeProvider theme={theme}>
+			<Router>
+				<div>
+					<Route path="/" component={App} />
+					<Route path="/today" component={App} />
+					<Route path="/tomorrow" component={App} />
+				</div>
+			</Router>
+		</ThemeProvider>
+	</Box>
 
 )
 ReactDOM.render(routing, document.getElementById('root'));
