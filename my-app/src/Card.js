@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Card, Typography, Grid } from "@material-ui/core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
-const thing = () => {
+const card = () => {
     return (
         <Box>
             <Card className="component-card">
@@ -18,10 +18,11 @@ const thing = () => {
                 <Grid container className="cc-box" justify="center">
                     <Typography>Chance of snowday: </Typography>
                 </Grid>
+                asdf
             </Card>
         </Box>
     )
 
 
 }
-export default thing;
+export default card;
