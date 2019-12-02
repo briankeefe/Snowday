@@ -5,9 +5,13 @@
 .component-card{
     height: 30vh;
     width: 15vw;
+    .fontawesome {
+        height: 5vh;
+        width: 5vh;
+    }
     .icon {
-        height: 20%;
-        width: 20%;
+        height: 100%;
+        width: 100%;
     }
     .cc-box {
         margin-bottom: 16px;

@@ -5,13 +5,13 @@ import { faBolt, faCloud } from "@fortawesome/free-solid-svg-icons";
 const card = (props) => {
     let temp = props.temp;
     let icon;
-    if(temp > 50){
+    if (temp > 50) {
         icon = (
-            <FontAwesomeIcon className="icon" icon={faBolt}/>
+            <FontAwesomeIcon className="icon" icon={faBolt} />
         );
-    }else{
+    } else {
         icon = (
-            <FontAwesomeIcon className="icon" icon={faCloud}/>
+            <FontAwesomeIcon className="icon" icon={faCloud} />
         );
     }
     return (
@@ -21,7 +21,7 @@ const card = (props) => {
                     <Typography>Weather Text</Typography>
                 </Grid>
                 <Grid container className="cc-box" justify="center">
-                    {icon}
+                    <Box className="fontawesome">{icon}</Box>
                 </Grid>
                 <Grid container className="cc-box" justify="center">
                     <Typography>Temperature: </Typography>
