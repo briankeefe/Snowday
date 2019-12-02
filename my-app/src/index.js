@@ -20,6 +20,8 @@ const routing = (
         <Router>
             <div>
                 <Route path="/" component={App} />
+                <Route path="/today" component={App}/>
+                <Route path="/tomorrow" component={App}/>
             </div>
         </Router>
     </ThemeProvider>
