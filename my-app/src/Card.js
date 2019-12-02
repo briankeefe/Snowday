@@ -17,18 +17,20 @@ const card = (props) => {
     return (
         <Box>
             <Card className="component-card">
-                <Grid container className="cc-box" justify="center">
-                    <Typography>Weather Text</Typography>
-                </Grid>
-                <Grid container className="cc-box" justify="center">
-                    <Box className="fontawesome">{icon}</Box>
-                </Grid>
-                <Grid container className="cc-box" justify="center">
-                    <Typography>Temperature: </Typography>
-                </Grid>
-                <Grid container className="cc-box" justify="center">
-                    <Typography>Chance of snowday: </Typography>
-                </Grid>
+                <Box p={3}>
+                    <Grid container className="cc-box" justify="center">
+                        <Typography>Weather Text</Typography>
+                    </Grid>
+                    <Grid container className="cc-box" justify="center">
+                        <Box className="fontawesome">{icon}</Box>
+                    </Grid>
+                    <Grid container className="cc-box" justify="center">
+                        <Typography>Temperature: </Typography>
+                    </Grid>
+                    <Grid container className="cc-box" justify="center">
+                        <Typography>Chance of snowday: </Typography>
+                    </Grid>
+                </Box>
             </Card>
         </Box>
     )

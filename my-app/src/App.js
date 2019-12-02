@@ -6,7 +6,7 @@ import "./style.scss";
 import Card from "./Card"
 import { blue } from "@material-ui/core/colors";
 import { useState } from "react";
-import Header from "./layout/header";
+import Header from "./layout/header"; 
 
 function App() {
 	const [zip, setZip] = useState(11111);
