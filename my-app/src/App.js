@@ -8,7 +8,7 @@ import {blue} from "@material-ui/core/colors"
 
 function App() {
 	return (
-		<Box className="home-page" style={{backgroundColor: blue[500]}}>
+		<Box className="home-page" style={{backgroundColor: blue[200]}}>
 			<Box className="next-box" pt={10}>
 				<Grid container justify="center" spacing={2}>
 					<Grid item>
