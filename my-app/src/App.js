@@ -11,10 +11,6 @@ function App() {
 	const [zip, setZip] = useState(11111);
 	const [textField, setTextField] = useState(zip);
 
-	const changeZip = (n) => {
-		console.log(n);
-	}
-
 	const updateText = (e) => {
 		setTextField(e.target.value);
 	}
@@ -26,13 +22,19 @@ function App() {
 	return (
 		<Box className="home-page" style={{ backgroundColor: blue[200] }}>
 			<Box className="next-box" pt={10}>
-				<Paper>
-					<Box flex justifyContent="center">
-						<Typography>Zipcode: {zip}</Typography>
-						<TextField onChange={updateText}></TextField>
-						<Button onClick={updateZip}>Change</Button>
-					</Box>
-				</Paper>
+				<Box my={2} mx={10}>
+					<Grid container justify="center">
+						<Grid item lg={4} md={6} xs={12}>
+							<Paper>
+								<Box display="flex" justifyContent="center">
+									<TextField variant="filled" onChange={updateText}></TextField>
+									<Button onClick={updateZip}>Change</Button>
+								</Box>
+							</Paper>
+						</Grid>
+
+					</Grid>
+				</Box>
 				<Grid container justify="center" spacing={2}>
 					<Grid item>
 						<Card temp={100} />
