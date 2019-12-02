@@ -12,7 +12,7 @@ function App() {
 			<Box className="next-box" pt={10}>
 				<Grid container justify="center" spacing={2}>
 					<Grid item>
-						<Card/>
+						<Card temp={100}/>
 					</Grid>
 					<Grid item>
 						<Card/>
