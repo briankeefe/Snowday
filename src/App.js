@@ -50,7 +50,7 @@ function App() {
         } else {
           console.log(res.data);
           setNextSnow(res.data.snow["1h"]);
-          setCity(res.data);
+          setCity(res.data.name);
         }
       })
       .then(() => {
@@ -91,7 +91,7 @@ function App() {
         </Box>
         <Grid container spacing={2} justify="center">
           <Grid item xs={12} sm={8} md={2}>
-            <Card snow={nextSnow} temp={100} />
+            <Card city={city} snow={nextSnow} temp={100} />
           </Grid>
         </Grid>
       </Box>
