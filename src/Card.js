@@ -1,11 +1,7 @@
 import React from "react";
 import { Box, Card, Typography, Grid } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBolt,
-  faCloud,
-  faSnowflake
-} from "@fortawesome/free-solid-svg-icons";
+import { faCloud, faSnowflake } from "@fortawesome/free-solid-svg-icons";
 const THRESHHOLD = 0.1;
 
 const card = props => {
@@ -38,7 +34,7 @@ const card = props => {
             <Box className="fontawesome">{icon}</Box>
           </Grid>
           <Grid container className="cc-box" justify="center">
-            <Typography>Snowfall: {snow}</Typography>
+            <Typography>Snowfall: {snow} in.</Typography>
           </Grid>
           <Grid container className="cc-box" justify="center">
             <Typography>Chance of snowday: {chance}%</Typography>

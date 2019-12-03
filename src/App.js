@@ -45,13 +45,14 @@ function App() {
       }
     })
       .then(res => {
+        console.log(res.data);
         if (!res.data.snow) {
           setNextSnow(0);
         } else {
-          console.log(res.data);
+          console.log(res.data.snow);
           setNextSnow(res.data.snow["1h"]);
-          setCity(res.data.name);
         }
+        setCity(res.data.name);
       })
       .then(() => {
         setTextCode(code);
