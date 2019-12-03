@@ -5,8 +5,9 @@ import { Box, Typography, Grid, Paper, TextField, Button } from '@material-ui/co
 import "./style.scss";
 import Card from "./Card"
 import { blue } from "@material-ui/core/colors";
-import { useState } from "react";
-import Header from "./layout/header"; 
+import { useState, useEffect } from "react";
+import Header from "./layout/header";
+import Axios from 'axios';
 
 function App() {
 	const [zip, setZip] = useState(11111);
@@ -20,6 +21,16 @@ function App() {
 		setZip(textField);
 	}
 
+	useEffect(() => {
+		Axios.get('http://localhost:3001/weather', {
+			params: {
+				location: "Boston"
+			}
+		}).then((res)=> {
+			console.log("we got a res");
+		})
+	}, [])
+
 	return (
 		<Box className="home-page" style={{ backgroundColor: blue[200] }}>
 			{Header}
@@ -29,7 +40,7 @@ function App() {
 						<Grid item lg={2} sm={5} xs={8}>
 							<Paper>
 								<Box m={2} p={1} display="flex" justifyContent="center">
-									<TextField style={{width: "80px"}} label="Zipcode" defaultValue={zip} variant="filled" onChange={updateText}></TextField>
+									<TextField style={{ width: "80px" }} label="Zipcode" defaultValue={zip} variant="filled" onChange={updateText}></TextField>
 									<Button onClick={updateZip}>Change</Button>
 								</Box>
 							</Paper>
