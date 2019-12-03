@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Box, Typography, Grid, Paper, TextField, Button } from '@material-ui/core'
+import { Box, Grid, Paper, TextField, Button } from '@material-ui/core'
 import "./style.scss";
 import Card from "./Card"
 import { blue } from "@material-ui/core/colors";

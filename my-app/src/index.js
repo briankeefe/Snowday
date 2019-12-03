@@ -5,9 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { purple, green, blue } from '@material-ui/core/colors';
-import { faFastForward } from '@fortawesome/free-solid-svg-icons';
-import { AppBar, Toolbar, Box, Typography, Button } from '@material-ui/core';
+import { green, blue } from '@material-ui/core/colors';
+import { Box } from '@material-ui/core';
 const theme = createMuiTheme({
 	palette: {
 		primary: blue,
