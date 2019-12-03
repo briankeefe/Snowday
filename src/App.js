@@ -18,9 +18,10 @@ function App() {
 
   const updateZip = e => {
     setZip(theText);
+    call(zip);
   };
 
-  useEffect(() => {
+  const call = () => {
     Axios.get("http://localhost:3001/weather", {
       params: {
         location: "Boston"
@@ -28,6 +29,9 @@ function App() {
     }).then(res => {
       console.log("RES: " + res);
     });
+  };
+  useEffect(() => {
+    call();
   }, []);
 
   return (
