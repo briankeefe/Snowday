@@ -9,25 +9,30 @@ import Header from "./layout/header";
 import Axios from "axios";
 
 function App() {
-  const [zip, setZip] = useState(11111);
+  const [zip, setZip] = useState("01772");
   const [theText, setTheText] = useState(zip);
+  const [nextSnow, setNextSnow] = useState(0);
 
   const updateText = e => {
     setTheText(e.target.value);
   };
 
-  const updateZip = e => {
+  const updateZip = () => {
     setZip(theText);
-    call(zip);
+    call(theText);
   };
 
-  const call = () => {
+  const call = code => {
     Axios.get("http://localhost:3001/weather", {
       params: {
-        location: "Boston"
+        zip: code
       }
     }).then(res => {
-      console.log("RES: " + res);
+      if (!res.data.snow) {
+        setNextSnow(0);
+      } else {
+        setNextSnow(res.data.snow["1h"]);
+      }
     });
   };
   useEffect(() => {
@@ -58,19 +63,7 @@ function App() {
         </Box>
         <Grid container spacing={2} justify="center">
           <Grid item xs={12} sm={8} md={2}>
-            <Card temp={100} />
-          </Grid>
-          <Grid item xs={12} sm={8} md={2}>
-            <Card />
-          </Grid>
-          <Grid item xs={12} sm={8} md={2}>
-            <Card />
-          </Grid>
-          <Grid item xs={12} sm={8} md={2}>
-            <Card />
-          </Grid>
-          <Grid item xs={12} sm={8} md={2}>
-            <Card />
+            <Card snow={nextSnow} temp={100} />
           </Grid>
         </Grid>
       </Box>
