@@ -1,17 +1,33 @@
 import React from "react";
 import "./App.css";
-import { Box, Grid, Paper, TextField, Button } from "@material-ui/core";
+import {
+  Box,
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  Typography
+} from "@material-ui/core";
 import "./style.scss";
 import Card from "./Card";
 import { blue } from "@material-ui/core/colors";
 import { useState, useEffect } from "react";
 import Header from "./layout/header";
 import Axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationArrow,
+  faMapMarker
+} from "@fortawesome/free-solid-svg-icons";
+
+const DEFAULTLOC = "01772";
 
 function App() {
-  const [zip, setZip] = useState("01772");
+  const [zip, setZip] = useState(DEFAULTLOC);
   const [theText, setTheText] = useState(zip);
   const [nextSnow, setNextSnow] = useState(0);
+  const [textCode, setTextCode] = useState(DEFAULTLOC);
+  const [city, setCity] = useState();
 
   const updateText = e => {
     setTheText(e.target.value);
@@ -27,16 +43,23 @@ function App() {
       params: {
         zip: code
       }
-    }).then(res => {
-      if (!res.data.snow) {
-        setNextSnow(0);
-      } else {
-        setNextSnow(res.data.snow["1h"]);
-      }
-    });
+    })
+      .then(res => {
+        if (!res.data.snow) {
+          setNextSnow(0);
+        } else {
+          console.log(res.data);
+          setNextSnow(res.data.snow["1h"]);
+          setCity(res.data);
+        }
+      })
+      .then(() => {
+        setTextCode(code);
+      });
   };
   useEffect(() => {
-    call();
+    call(DEFAULTLOC);
+    setTextCode(DEFAULTLOC);
   }, []);
 
   return (
@@ -47,11 +70,16 @@ function App() {
           <Grid container justify="center">
             <Grid item lg={2} sm={3} xs={8}>
               <Paper>
-                <Box m={2} p={1} display="flex" justifyContent="center">
+                <Box mt={2} pt={2} display="flex" justifyContent="center">
+                  <FontAwesomeIcon icon={faMapMarker} />
+                  <Typography style={{ marginLeft: "8px" }}>
+                    {textCode}
+                  </Typography>
+                </Box>
+                <Box m={2} mt={0} p={1} display="flex" justifyContent="center">
                   <TextField
-                    style={{ width: "80px" }}
+                    style={{ width: "60%" }}
                     label="Zipcode"
-                    defaultValue={zip}
                     variant="filled"
                     onChange={updateText}
                   ></TextField>
