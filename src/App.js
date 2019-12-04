@@ -90,12 +90,16 @@ function App() {
 									justifyContent="center"
 								>
 									<TextField
-										style={{ width: "60%" }}
 										label="Zipcode"
-										variant="filled"
+										variant="outlined"
 										onChange={updateText}
 									></TextField>
-									<Button variant="outlined" onClick={updateZip}>
+									<Button
+										className="change-button"
+										variant="contained"
+										color="primary"
+										onClick={updateZip}
+									>
 										Change
 									</Button>
 								</Box>
@@ -104,8 +108,8 @@ function App() {
 					</Grid>
 				</Box>
 				<Grid container spacing={2} justify="center">
-					<Grid item xs={12} sm={8} md={2}>
-						<Card city={city} snow={nextSnow} temp={100} />
+					<Grid item xs={12} sm={8} md={3}>
+						<Card city={city} snow={nextSnow} />
 					</Grid>
 				</Grid>
 			</Box>
