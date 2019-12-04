@@ -24,7 +24,7 @@ const DEFAULTLOC = "01772";
 
 function App() {
 	const [zip, setZip] = useState(DEFAULTLOC);
-	const [theText, setTheText] = useState(zip);
+	const [theText, setTheText] = useState("");
 	const [nextSnow, setNextSnow] = useState(0);
 	const [textCode, setTextCode] = useState(DEFAULTLOC);
 	const [city, setCity] = useState();
@@ -56,6 +56,7 @@ function App() {
 			})
 			.then(() => {
 				setTextCode(code);
+				setTheText("");
 			});
 	};
 	useEffect(() => {
@@ -93,6 +94,7 @@ function App() {
 										className="text-input"
 										label="Zipcode"
 										variant="outlined"
+										value={theText}
 										onChange={updateText}
 									></TextField>
 									<Button
