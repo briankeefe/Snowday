@@ -1,17 +1,23 @@
-.home-page{
-    min-height:97vh;
+.home-page {
+	min-height: 97vh;
 }
 
-.component-card{
-    .fontawesome {
-        height: 5vh;
-        width: 5vh;
-    }
-    .icon {
-        height: 100%;
-        width: 100%;
-    }
-    .cc-box {
-        margin-bottom: 16px;
-    }
+.component-card {
+	.fontawesome {
+		height: 5vh;
+		width: 5vh;
+	}
+	.icon {
+		height: 100%;
+		width: 100%;
+	}
+	.cc-box {
+		margin-bottom: 16px;
+	}
+}
+
+.outer-card {
+	.MuiCardHeader-title {
+		text-align: center;
+	}
 }
