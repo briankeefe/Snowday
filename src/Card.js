@@ -40,7 +40,7 @@ const card = props => {
 							<Box className="fontawesome">{icon}</Box>
 						</Grid>
 						<Grid container className="cc-box" justify="center">
-							<Typography>Snowfall: {snow} in.</Typography>
+							<Typography>Incoming Snowfall: {snow} in.</Typography>
 						</Grid>
 						<Grid container className="cc-box" justify="center">
 							<Typography>Chance of snowday: {chance}%</Typography>
