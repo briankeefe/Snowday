@@ -39,7 +39,7 @@ function App() {
 	};
 
 	const call = code => {
-		Axios.get("http://localhost:3001/weather", {
+		Axios.get("http://localhost:3001/snow", {
 			params: {
 				zip: code
 			}

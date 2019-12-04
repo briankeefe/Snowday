@@ -16,7 +16,7 @@ weather.setAPPID(key);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-app.get("/weather", (req, res) => {
+app.get("/snow", (req, res) => {
 	console.log(req.query);
 	if (req.query.location) {
 		console.log("loc=" + req.query.location);
