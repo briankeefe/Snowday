@@ -69,7 +69,7 @@ function App() {
 			<Box className="next-box">
 				<Box mb={2}>
 					<Grid container justify="center">
-						<Grid item lg={2} sm={3} xs={8}>
+						<Grid item lg={3} md={4} sm={5} xs={10}>
 							<Paper>
 								<Box
 									mt={2}
@@ -90,6 +90,7 @@ function App() {
 									justifyContent="center"
 								>
 									<TextField
+										className="text-input"
 										label="Zipcode"
 										variant="outlined"
 										onChange={updateText}
