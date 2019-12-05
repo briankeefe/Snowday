@@ -65,7 +65,7 @@ function App() {
 	}, []);
 
 	return (
-		<Box className="home-page" style={{ backgroundColor: blue[200] }}>
+		<Box className="home-page" style={{ backgroundColor: blue[100] }}>
 			{Header}
 			<Box className="next-box">
 				<Box mb={2}>
@@ -80,7 +80,7 @@ function App() {
 								>
 									<FontAwesomeIcon icon={faMapMarker} />
 									<Typography style={{ marginLeft: "8px" }}>
-										{textCode}
+										{city}
 									</Typography>
 								</Box>
 								<Box

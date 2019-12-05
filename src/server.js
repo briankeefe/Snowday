@@ -18,20 +18,19 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 app.get("/snow", (req, res) => {
 	console.log(req.query);
-	if (req.query.location) {
-		console.log("loc=" + req.query.location);
-		weather.setCity(req.query.location);
-	} else if (req.query.zip) {
+	if (req.query.zip) {
 		weather.setZipCode(req.query.zip);
+		weather.getAllWeather((err, json) => {
+			if (err) {
+				console.log(err);
+				res.send(err);
+			} else {
+				res.send(json);
+			}
+		});
+	} else {
+		res.send("Please provide a value for zip");
 	}
-	weather.getAllWeather((err, json) => {
-		if (err) {
-			console.log(err);
-			res.send(err);
-		} else {
-			res.send(json);
-		}
-	});
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -14,6 +14,7 @@ const THRESHHOLD = 0.1;
 const card = props => {
 	let snow = props.snow;
 	let city = props.city;
+	let code = props.code;
 	let icon;
 	if (snow > THRESHHOLD) {
 		icon = <FontAwesomeIcon className="icon" icon={faSnowflake} />;
@@ -35,7 +36,7 @@ const card = props => {
 			<Card className="component-card">
 				<CardHeader title={city} />
 				<CardContent>
-					<Box p={3}>
+					<Box>
 						<Grid container className="cc-box" justify="center">
 							<Box className="fontawesome">{icon}</Box>
 						</Grid>
