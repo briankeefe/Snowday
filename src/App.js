@@ -26,8 +26,9 @@ function App() {
 	const [zip, setZip] = useState(DEFAULTLOC);
 	const [theText, setTheText] = useState("");
 	const [nextSnow, setNextSnow] = useState(0);
-	const [textCode, setTextCode] = useState(DEFAULTLOC);
 	const [city, setCity] = useState();
+	const [weatherCode, setWeatherCode] = useState();
+	const [desc, setDesc] = useState();
 
 	const updateText = e => {
 		setTheText(e.target.value);
@@ -43,21 +44,19 @@ function App() {
 			params: {
 				zip: code
 			}
-		})
-			.then(res => {
-				console.log(res.data);
-				if (!res.data.snow) {
-					setNextSnow(0);
-				} else {
-					console.log(res.data.snow);
-					setNextSnow(res.data.snow["1h"]);
-				}
-				setCity(res.data.name);
-			})
-			.then(() => {
-				setTextCode(code);
-				setTheText("");
-			});
+		}).then(res => {
+			console.log(res.data);
+			if (!res.data.snow) {
+				setNextSnow(0);
+			} else {
+				console.log(res.data.snow);
+				setNextSnow(res.data.snow["1h"]);
+			}
+			setCity(res.data.name);
+			setWeatherCode(res.data["weather"][0]["id"]);
+			setDesc(res.data["weather"][0]["description"]);
+			setTheText("");
+		});
 	};
 	useEffect(() => {
 		call(DEFAULTLOC);
@@ -112,7 +111,12 @@ function App() {
 				</Box>
 				<Grid container spacing={2} justify="center">
 					<Grid item xs={12} sm={8} md={3}>
-						<Card city={city} snow={nextSnow} />
+						<Card
+							desc={desc}
+							code={weatherCode}
+							city={city}
+							snow={nextSnow}
+						/>
 					</Grid>
 				</Grid>
 			</Box>

@@ -17,10 +17,12 @@ weather.setAPPID(key);
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.get("/snow", (req, res) => {
+	console.log("query");
 	console.log(req.query);
 	if (req.query.zip) {
 		weather.setZipCode(req.query.zip);
 		weather.getAllWeather((err, json) => {
+			console.log(json["weather"][0]);
 			if (err) {
 				console.log(err);
 				res.send(err);

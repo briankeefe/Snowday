@@ -13,10 +13,17 @@
 	.fontawesome {
 		height: 5vh;
 		width: 5vh;
+		margin: auto;
+	}
+	#desc {
+		margin-bottom: 24px;
 	}
 	.icon {
 		height: 100%;
 		width: 100%;
+		display: flex;
+		justify-content: center;
+		justify-self: center;
 	}
 	.cc-box {
 		margin-bottom: 16px;
