@@ -39,6 +39,20 @@ const weather = x => {
 	}
 	return res;
 };
+
+let calculate = val => {
+	let res;
+	if (val > 10) {
+		res = 100;
+	} else if (val > 5) {
+		res = 60;
+	} else if (val > 3) {
+		res = 30;
+	} else {
+		res = 0;
+	}
+	return res;
+};
 const card = props => {
 	let snow = props.snow;
 	let city = props.city;
@@ -47,16 +61,8 @@ const card = props => {
 	let sign = weather(code);
 	let img = <FontAwesomeIcon className="icon" icon={sign} />;
 
-	let chance;
-	if (snow > 10) {
-		chance = 100;
-	} else if (snow > 5) {
-		chance = 60;
-	} else if (snow > 3) {
-		chance = 30;
-	} else {
-		chance = 0;
-	}
+	let chance = calculate(snow);
+
 	return (
 		<Box className="outer-card">
 			<Card className="component-card">
