@@ -18,29 +18,35 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const THRESHHOLD = 0.1;
 
+const weather = x => {
+	let res;
+	if (x > 800) {
+		res = faCloud;
+	} else if (x === 800) {
+		res = faSun;
+	} else if (x > 700) {
+		res = faCloud;
+	} else if (x >= 600) {
+		res = faSnowflake;
+	} else if (x >= 500) {
+		res = faCloudRain;
+	} else if (x >= 300) {
+		res = faWater;
+	} else if (x >= 200) {
+		res = faBolt;
+	} else {
+		res = faCloud;
+	}
+	return res;
+};
 const card = props => {
 	let snow = props.snow;
 	let city = props.city;
 	let code = props.code;
 	let desc = props.desc;
-	let icon;
-	if (code > 800) {
-		icon = <FontAwesomeIcon className="icon" icon={faCloud} />;
-	} else if (code === 800) {
-		icon = <FontAwesomeIcon className="icon" icon={faSun} />;
-	} else if (code > 700) {
-		icon = <FontAwesomeIcon className="icon" icon={faCloud} />;
-	} else if (code >= 600) {
-		icon = <FontAwesomeIcon className="icon" icon={faSnowflake} />;
-	} else if (code >= 500) {
-		icon = <FontAwesomeIcon className="icon" icon={faCloudRain} />;
-	} else if (code >= 300) {
-		icon = <FontAwesomeIcon className="icon" icon={faWater} />;
-	} else if (code >= 200) {
-		icon = <FontAwesomeIcon classname="icon" icon={faBolt} />;
-	} else {
-		icon = <FontAwesomeIcon className="icon" icon={faCloud} />;
-	}
+	let sign = weather(code);
+	let img = <FontAwesomeIcon className="icon" icon={sign} />;
+
 	let chance;
 	if (snow > 10) {
 		chance = 100;
@@ -63,7 +69,7 @@ const card = props => {
 						textAlign="center"
 					>
 						<Box display="flex" className="fontawesome">
-							{icon}
+							{img}
 						</Box>
 						<Typography id="desc">{desc}</Typography>
 						<Typography>Incoming Snowfall: {snow} in.</Typography>

@@ -52,10 +52,14 @@ function App() {
 				console.log(res.data.snow);
 				setNextSnow(res.data.snow["1h"]);
 			}
-			setCity(res.data.name);
-			setWeatherCode(res.data["weather"][0]["id"]);
-			setDesc(res.data["weather"][0]["description"]);
 			setTheText("");
+			if (res.data["weather"]) {
+				setCity(res.data.name);
+				setWeatherCode(res.data["weather"][0]["id"]);
+				setDesc(res.data["weather"][0]["description"]);
+			} else {
+				alert("INVALID ZIP!");
+			}
 		});
 	};
 	useEffect(() => {
